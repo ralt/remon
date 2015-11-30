@@ -47,3 +47,11 @@ values(~S, ~S)")
                                     *edids-create-query*
                                     edids
                                     xrandr-args)))
+
+(defvar *get-xrandr-args-query* "
+select xrandr_options
+from configurations
+where edids = ~S")
+
+(defun get-xrandr-args (db edids)
+  (sqlite:execute-single db (format nil *get-xrandr-args-query* edids)))

@@ -8,4 +8,5 @@
                 :components ((:file "packages")
                              (:file "db")
                              (:file "edid")
+                             (:file "xrandr")
                              (:file "remon")))))

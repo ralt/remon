@@ -3,7 +3,7 @@
   :author "Florian Margaine <florian@margaine.com>"
   :license "MIT license"
   :serial t
-  :depends-on (:inotify :remon)
+  :depends-on (:inotify :remon :sqlite)
   :components ((:module "src"
                 :components ((:file "packages")
                              (:file "remon-service")))))
