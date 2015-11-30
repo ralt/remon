@@ -5,5 +5,5 @@
   :serial t
   :depends-on (:inotify :remon)
   :components ((:module "src"
-                :components ((:file "package")
-                             (:file "remon")))))
+                :components ((:file "packages")
+                             (:file "remon-service")))))

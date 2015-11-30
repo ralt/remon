@@ -5,7 +5,7 @@
   :serial t
   :depends-on (:sqlite :ironclad)
   :components ((:module "src"
-                :components ((:file "package")
+                :components ((:file "packages")
                              (:file "db")
                              (:file "edid")
                              (:file "remon")))))
