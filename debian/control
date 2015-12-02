@@ -9,8 +9,3 @@ Package: remon
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Remember the monitor layout and automatically apply it
-
-Package: remon-service
-Architecture: amd64
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Service waiting for monitor plugs and unplugs.
