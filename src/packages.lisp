@@ -2,6 +2,7 @@
   (:use #:cl)
   (:export :main
            :*db-path*
+           :setup-db
            :get-edids-sum
            :get-edids
            :edids-exists

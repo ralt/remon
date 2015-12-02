@@ -1,6 +1,6 @@
 (in-package #:remon)
 
-(defvar *db-path* (merge-pathnames #p".remon.db" (user-homedir-pathname)))
+(defvar *db-path* #p"/var/lib/remon/db")
 
 (defvar *create-table-query* "
 create table if not exists configurations (
@@ -9,8 +9,12 @@ create table if not exists configurations (
 )")
 
 (defun setup-db ()
-  (sqlite:with-open-database (db *db-path*)
-    (sqlite:execute-single db *create-table-query*)))
+  (let ((db-directory (directory-namestring *db-path*)))
+    (ensure-directories-exist db-directory)
+    (sqlite:with-open-database (db *db-path*)
+      (sqlite:execute-single db *create-table-query*))
+    (sb-posix:chmod db-directory #o0777)
+    (sb-posix:chmod *db-path* #o0666)))
 
 (defun save-configuration (edids xrandr-args)
   (sqlite:with-open-database (db *db-path*)

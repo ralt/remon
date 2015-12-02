@@ -4,6 +4,7 @@
 
 (defun main (args)
   (declare (ignore args))
+  (remon:setup-db)
   (dolist (f (directory *statuses-pathname*))
     (watch f #'apply-known-configuration)))
 
